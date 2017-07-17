@@ -1,0 +1,50 @@
+{
+    "name": "shawnsandy/dashauth",
+    "type": "library",
+    "description": "Dash auth",
+    "keywords": [
+        "shawnsandy",
+        "dashauth"
+    ],
+    "homepage": "https://github.com/shawnsandy/dashauth",
+    "license": "MIT",
+    "authors": [{
+        "name": "Shawn Sandy",
+        "email": "shawnsandy04@gmail.com",
+        "homepage": "https://github.com/shawnsandy",
+        "role": "Developer"
+    }],
+    "require": {
+        "php": "~5.6|~7.0",
+        "illuminate/contracts": "~5.3|~5.4",
+        "illuminate/http": "~5.3|~5.4",
+        "illuminate/support": "~5.3|~5.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0||~5.0||~6.0",
+        "squizlabs/php_codesniffer": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "ShawnSandy\\DashAuth\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ShawnSandy\\DashAuth\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "check-style": "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests",
+        "fix-style": "phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
