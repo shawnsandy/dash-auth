@@ -25,6 +25,7 @@
         "illuminate/support": "~5.3|~5.4",
         "shawnsandy/dashelements": "dev-master",
         "shawnsandy/extras": "dev-master",
+        "silber/bouncer": "v1.0.0-beta.2",
         "spatie/laravel-permission": "^2.2"
     },
     "require-dev": {
