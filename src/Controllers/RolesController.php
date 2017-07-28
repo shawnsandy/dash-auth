@@ -10,6 +10,7 @@ namespace ShawnSandy\DashAuth\Controllers;
 
 
 use Illuminate\Routing\Controller;
+use ShawnSandy\DashAuth\AuthFormRequest;
 
 class RolesController extends Controller
 {
@@ -18,19 +19,14 @@ class RolesController extends Controller
         return "Hello world";
     }
 
-
-    public function store()
+    public function store(AuthFormRequest $request)
     {
 
     }
 
-    public function update() {
+    public function update(AuthFormRequest $request) {
 
     }
 
-    public function destroy()
-    {
-
-    }
 
 }
