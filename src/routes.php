@@ -5,3 +5,13 @@
  * Date: 10/27/16
  * Time: 12:58 PM
  */
+
+Route::group(["prefix" => "auth", "middleware" => ["auth"]], function() {
+
+    Route::resource("roles", '\ShawnSandy\DashAuth\Controllers\RolesController', ["only" => ["store", "update", "destroy"]]);
+
+    Route::resource("privilege", '\ShawnSandy\DashAuth\Controllers\PrivilegesController', ["only" => ["store", "update", "destroy"]]);
+
+});
+
+
