@@ -14,17 +14,23 @@ use ShawnSandy\DashAuth\AuthFormRequest;
 class PrivilegesController
 {
 
-    public function index() {
+    public function index()
+    {
         return "Hello world";
     }
 
-
+    /*
+     * Assign specific privilege to user
+     *
+     */
     public function store(AuthFormRequest $request)
     {
 
+
     }
 
-    public function update(AuthFormRequest $request) {
+    public function update(AuthFormRequest $request)
+    {
 
     }
 

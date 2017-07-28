@@ -8,9 +8,9 @@
 
 Route::group(["prefix" => "auth", "middleware" => ["auth"]], function() {
 
-    Route::resource("roles", '\ShawnSandy\DashAuth\Controllers\RolesController', ["only" => ["store", "update", "destroy"]]);
+    Route::resource("roles", '\ShawnSandy\DashAuth\Controllers\RolesController', ["only" => ["store", "update"]]);
 
-    Route::resource("privilege", '\ShawnSandy\DashAuth\Controllers\PrivilegesController', ["only" => ["store", "update", "destroy"]]);
+    Route::resource("privileges", '\ShawnSandy\DashAuth\Controllers\PrivilegesController', ["only" => ["store", "update"]]);
 
 });
 
