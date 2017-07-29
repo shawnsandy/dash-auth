@@ -1,11 +1,11 @@
 @php
 
     $auth_roles = config('dashauth.roles');
-    $current_user = \App\User::find(Auth::id());
+    $current_user = Auth::user();
 
 @endphp
 
-@if( empty(config("dashauth.admins")) || $current_user->isAn($_role = config("dashauth.admins")) )
+@if( empty(config("dashauth.user_admins")) || $current_user->isAn($_role = config("dashauth.user_admins")) )
 
     @if(count($auth_roles) && isset($user))
 
