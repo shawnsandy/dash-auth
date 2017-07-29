@@ -3,6 +3,7 @@
     namespace ShawnSandy\DashAuth;
 
     use Illuminate\Support\ServiceProvider;
+    use Silber\Bouncer\BouncerFacade;
     use Silber\Bouncer\BouncerServiceProvider;
 
     /**
@@ -11,6 +12,7 @@
      */
     class DashAuthServicesProvider extends ServiceProvider
     {
+
         /**
          * Perform post-registration booting of services.
          *
@@ -78,7 +80,7 @@
 
             $this->app->bind(
                 'Dashauth', function () {
-                return new Dashauth();
+                return new DashAuth();
             }
             );
 
@@ -97,7 +99,7 @@
             * Load aliases / facades
             */
             $aliases = \Illuminate\Foundation\AliasLoader::getInstance();
-            $aliases->alias("Bouncer", BouncerServiceProvider::class);
+            $aliases->alias("Bouncer", BouncerFacade::class);
         }
 
 
