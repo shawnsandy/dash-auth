@@ -10,8 +10,6 @@
 
     @if(count($auth_roles) && isset($user))
 
-
-
         <div class="roles">
 
             {{-- if user has role display add else display remove button--}}
