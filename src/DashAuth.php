@@ -8,6 +8,7 @@
 
     namespace ShawnSandy\DashAuth;
 
+    use Silber\Bouncer\Database\Role;
 
     class DashAuth
     {
@@ -16,5 +17,8 @@
             require  __DIR__.'/routes.php';
         }
 
+        public function roles() {
+             return Role::all()->toArray();
+        }
 
     }

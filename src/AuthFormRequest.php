@@ -9,15 +9,27 @@
 namespace ShawnSandy\DashAuth;
 
 
+use App\User;
 use Auth;
-use Illuminate\Http\Request;
+use Illuminate\Foundation\Http\FormRequest;
 use Silber\Bouncer\BouncerFacade as Bouncer;
 
-class AuthFormRequest extends Request
+class AuthFormRequest extends FormRequest
 {
+
+
 
     public function authorize() {
         return Auth::check();
+    }
+
+    public function rules()
+    {
+        return [
+            "user" => "sometimes|required|integer",
+            "role" => "sometimes|required|string",
+            "privilege" => "sometimes|required|string",
+        ];
     }
 
     public function assignRoleToUser()
@@ -25,8 +37,8 @@ class AuthFormRequest extends Request
 
         if ($this->has(["role", "user"])):
 
-            $user = $this->input("role");
-            $role = $this->input("user");
+            $user = $this->input("user");
+            $role = $this->input("role");
 
             return Bouncer::assign($role)->to($user);
         endif;
@@ -73,6 +85,10 @@ class AuthFormRequest extends Request
         endif;
         return false;
 
+    }
+
+    protected function theUser($id) {
+        return User::find($id);
     }
 
 }
