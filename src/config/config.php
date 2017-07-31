@@ -1,6 +1,7 @@
 <?php
 
 return [
+    "user_admins" => "admin",
     'roles' => [
         'superadmin' => "Super Admin",
         'admin' => "Admin",
