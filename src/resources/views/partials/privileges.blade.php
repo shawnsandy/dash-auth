@@ -56,11 +56,12 @@
 @push("scripts")
 <script>
     $(".manage-privileges").each(function () {
-        $(".privileges").fadeOut();
+
         var toggle_permissions = $(this).find(".toggle-permissions");
         var privilegs = $(this).find(".privileges");
 
         toggle_permissions.click(function (e) {
+            $(".privileges").fadeOut();
             e.preventDefault();
             privilegs.fadeToggle();
         })
