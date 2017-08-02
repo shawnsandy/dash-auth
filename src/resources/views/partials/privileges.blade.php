@@ -1,31 +1,45 @@
+@php
+    if(!isset($privileges))
+    $privileges = config("dashauth.abilities");
+    if(!isset($roles))
+    $roles = Dashauth::roles();
+@endphp
 @if(count($roles))
 
-    @foreach ($roles as $role => $name)
+    @foreach ($roles as $role)
         <div class="manage-privileges">
 
             <div class="row">
-                <div class="flex-center ">
-                    <div class="col-md-3">
-                        <button class="btn btn-primary btn-block toggle-permissions">
-                            {{ ucwords($name["name"]) }} Role
-                        </button>
+
+                <div class="col-md-3">
+                    <div class="flex-center ">
+                        <p class="h4">
+                            <a href="#" class="toggle-permissions">{{ ucwords($role->name) }} Role</a>
+                        </p>
                     </div>
                 </div>
+
                 <div class="col-md-9">
                     <div class="privileges flex-center">
-                        <div class="row">
-                            @foreach($privileges as $privilege => $name )
-                                <a href="/" class="btn btn-link btn-xs">{{ ucwords($name) }} |</a>
-                            @endforeach
-                            <button class="btn btn-link btn-xs toggle-permissions">
-                                <i class="fa fa-times text-danger"></i>
-                            </button>
-                        </div>
+
+                        @foreach($privileges as $privilege => $ability )
+
+                            @if($role->can($privilege) )
+                                <a href="/" class="btn btn-success btn-sm" style="padding: 0 5px">{{ ucwords($ability) }}</a>
+                            @else
+                                <a href="/" class="btn btn-default btn-sm" style="padding: 0 5px">{{ ucwords($ability) }}</a>
+                            @endif
+
+                        @endforeach
+
                     </div>
                 </div>
+
             </div>
-            <hr>
+
+
         </div>
+        <hr>
     @endforeach
 
 @else
@@ -39,32 +53,32 @@
     </p>
 
 @endif
-{{ dump(Dashauth::roles()) }}
+
 
 @push('styles')
-<style>
-    .privileges {
-        display: none;
-    }
+    <style>
+        .privileges {
+            display: none;
+        }
 
-    .manage-privileges {
-        margin-bottom: 22px;
-    }
-</style>
+        .manage-privileges {
+            margin-bottom: 22px;
+        }
+    </style>
 @endpush
 
 @push("scripts")
-<script>
-    $(".manage-privileges").each(function () {
+    <script>
+        $(".manage-privileges").each(function () {
 
-        var toggle_permissions = $(this).find(".toggle-permissions");
-        var privilegs = $(this).find(".privileges");
+            var toggle_permissions = $(this).find(".toggle-permissions");
+            var privilegs = $(this).find(".privileges");
 
-        toggle_permissions.click(function (e) {
-            $(".privileges").fadeOut();
-            e.preventDefault();
-            privilegs.fadeToggle();
+            toggle_permissions.click(function (e) {
+                $(".privileges").fadeOut();
+                e.preventDefault();
+                privilegs.fadeToggle();
+            })
         })
-    })
-</script>
+    </script>
 @endpush
