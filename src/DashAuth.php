@@ -18,7 +18,7 @@
         }
 
         public function roles() {
-             return Role::all()->toArray();
+             return Role::with('abilities')->get();
         }
 
     }
