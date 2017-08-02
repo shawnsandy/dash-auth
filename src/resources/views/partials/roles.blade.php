@@ -1,27 +1,29 @@
 @php
 
-    $auth_roles = config('dashauth.roles');
+    $auth_roles = Dashauth::roles();
     $current_user = Auth::user();
 
 @endphp
 
-@if( empty(config("dashauth.user_admins")) || $current_user->isAn($_role = config("dashauth.user_admins")) )
+
+@if(  config("dashauth.setup") || Bouncer::is($current_user)->a('super admin', 'admin') )
 
     @if(count($auth_roles) && isset($user))
 
         <div class="roles">
+
             {{-- if user has role display add else display remove button--}}
             <ul class="list-group">
-                @foreach($auth_roles as $key => $title)
+                @foreach($auth_roles as $key => $role)
                     <li class="list-group-item">
-                        @if($user->isAn($key))
-                            {{ Form::open(['url' => '/admin/auth/roles/'.$key, 'method' => 'put',]) }}
-                            <button type="submit" class="btn btn-link btn-sm">Remove {{ $title }} Role</button>
+                        @if($user->isAn($role["name"]))
+                            {{ Form::open(['url' => '/admin/auth/roles/'.$role["name"], 'method' => 'put',]) }}
+                            <button type="submit" class="btn btn-link btn-sm">Remove {{ $role["title"] }} Role</button>
                         @else
-                            {{ Form::open(['url' => '/admin/auth/roles/', 'name' => $key]) }}
-                            <button type="submit" class="btn btn-link btn-sm">Add {{ $title }} Role</button>
+                            {{ Form::open(['url' => '/admin/auth/roles/', 'name' => $role["name"]]) }}
+                            <button type="submit" class="btn btn-link btn-sm">Add {{ $role["title"] }} Role</button>
                         @endif
-                        {{ Form::hidden("role", $key) }}
+                        {{ Form::hidden("role", $role["name"]) }}
                         {{ Form::hidden("user", $user->id) }}
                         {{ Form::close() }}
                     </li>

@@ -35,7 +35,4 @@ class RolesController extends Controller
             return back()->with("error", "Sorry we were unable to remove the role {$request->role} from the user");
     }
 
-
-
-
 }
