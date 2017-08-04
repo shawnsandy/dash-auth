@@ -4,6 +4,7 @@
     if(!isset($roles))
     $roles = Dashauth::roles();
 @endphp
+
 @if(count($roles))
 
     @foreach ($roles as $role)
@@ -25,9 +26,9 @@
                         @foreach($privileges as $privilege => $ability )
 
                             @if($role->can($privilege) )
-                                <a href="/" class="btn btn-success btn-sm" style="padding: 0 5px">{{ ucwords($ability) }}</a>
+                                <a href="/" class="btn btn-success btn-xs">{{ ucwords($ability) }}</a>
                             @else
-                                <a href="/" class="btn btn-default btn-sm" style="padding: 0 5px">{{ ucwords($ability) }}</a>
+                                <a href="/" class="btn btn-default btn-xs">{{ ucwords($ability) }}</a>
                             @endif
 
                         @endforeach
