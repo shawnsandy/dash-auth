@@ -5,6 +5,8 @@
     $roles = Dashauth::roles();
 @endphp
 
+
+@can('manage_systems')
 @if(count($roles))
 
     @foreach ($roles as $role)
@@ -54,7 +56,7 @@
     </p>
 
 @endif
-
+@endcan
 
 @push('styles')
     <style>
