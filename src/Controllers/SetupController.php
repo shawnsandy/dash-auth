@@ -31,7 +31,7 @@ class SetupController extends Controller
         $setup->insert($roles);
 
         Bouncer::allow("superadmin")->to(array_values(["manage_systems", "admin"]));
-        Bouncer::assign("superadmin")->to(Auth::id());
+        Bouncer::assign(["superadmin", "admin"])->to(Auth::id());
 
         return back()->with("success", "Roles and Privileges have been successfully created");
 
