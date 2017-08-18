@@ -6,7 +6,7 @@
 @endphp
 
 
-@if(  config("dashauth.setup") || Bouncer::is($current_user)->a('super admin', 'admin') )
+@if(  config("dashauth.setup") || Bouncer::is($current_user)->a('superadmin', 'admin') )
 
     @if(count($auth_roles) && isset($user))
 
