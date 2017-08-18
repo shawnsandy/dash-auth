@@ -2,7 +2,7 @@
 
 return [
     "user_admins" => "admin",
-    "setup" => "false",
+    "setup" => false,
     'roles' => [
         'superadmin' => "Super Admin",
         'admin' => "Admin",
