@@ -22,7 +22,7 @@ class SetupController extends Controller
         $roles = Role::all()->toArray();
 
         if (count($roles) && config("dashauth.setup") === false)
-            return back()->with("error", "Sorry setup is disables or roles already exist please contact a system administrator to resolve issue");
+            return back()->with("error", "Sorry setup has been disabled or roles already exist please contact a system administrator to resolve issue");
 
         $setup = app(Role::class);
         $roles =  collect(config("dashauth.roles"))->keys()->map(function( $key) {
@@ -30,7 +30,7 @@ class SetupController extends Controller
         })->toArray();
         $setup->insert($roles);
 
-        Bouncer::allow("superadmin")->to(array_values(["manage_systems", "admin"]));
+        Bouncer::allow("superadmin")->to(array_values(["manage_systems", "manage_admin"]));
         Bouncer::assign(["superadmin", "admin"])->to(Auth::id());
 
         return back()->with("success", "Roles and Privileges have been successfully created");
