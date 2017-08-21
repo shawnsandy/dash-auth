@@ -15,9 +15,8 @@ return [
         'assign_roles' => 'Assign Roles',
         'manage_users' => 'Manage Users',
         'manage_posts' => 'Manage Posts',
-        'manage_site' => 'Manage Site',
+        'manage_admin' => 'Manage Site',
         'manage_systems' => 'Manage Systems',
     ]
 
 ];
-
