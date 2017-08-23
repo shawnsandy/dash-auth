@@ -21,7 +21,7 @@ class SetupController extends Controller
     {
         $roles = Role::all()->toArray();
 
-        if (count($roles) && config("dashauth.setup") === false)
+        if (count($roles) || config("dashauth.setup") === false)
             return back()->with("error", "Sorry setup has been disabled or roles already exist please contact a system administrator to resolve issue");
 
         $setup = app(Role::class);
