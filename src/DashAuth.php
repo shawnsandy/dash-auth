@@ -15,6 +15,8 @@
 
         public function routes(){
             require  __DIR__.'/routes.php';
+            //require  __DIR__.'/routes/setup.php';
+
         }
 
         public function roles() {

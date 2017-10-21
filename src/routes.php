@@ -6,7 +6,11 @@
  * Time: 12:58 PM
  */
 
-Route::group(["prefix" => "auth", "middleware" => ["auth"]], function() {
+Route::group(["prefix" => "dashauth", "middleware" => ["auth"]], function() {
+
+    Route::get("/index", function(){
+        return view("dashauth::setup");
+    });
 
     Route::resource("roles", '\ShawnSandy\DashAuth\Controllers\RolesController', ["only" => ["store", "update"]]);
 
@@ -15,5 +19,3 @@ Route::group(["prefix" => "auth", "middleware" => ["auth"]], function() {
     Route::get("setup/", '\ShawnSandy\DashAuth\Controllers\SetupController');
 
 });
-
-

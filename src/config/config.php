@@ -3,6 +3,7 @@
 return [
     "user_admins" => "admin",
     "setup" => false,
+    "super_admin_email" => env("AMDIN_EMAIL"),
     'roles' => [
         'superadmin' => "Super Admin",
         'admin' => "Admin",
