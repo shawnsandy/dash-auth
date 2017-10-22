@@ -8,7 +8,7 @@
 
 Route::group(["prefix" => "dashauth", "middleware" => ["auth"]], function() {
 
-    Route::get("/index", function(){
+    Route::get("/", function(){
         return view("dashauth::setup");
     });
 
