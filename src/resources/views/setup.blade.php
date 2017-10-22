@@ -29,11 +29,11 @@
                             <div class="section">
                                 <div class="content">
                                 <h1 class="title is-1"><i class="fa fa-shield is-light" aria-hidden="true"></i></h1>
-                                    <h2 class="subtitle is-3">
-                                         Dash Auth
+                                    <h2 class="subtitle is-3 is-uppercase">
+                                         Dash Auth Setup
                                     </h2>
                                     <p class="is-6">
-                                    Before we start you will need to create a super admin to manage roles & abilities. Please hit the button below to activate your super admin continue.
+                                    Dash Auth is simple way to create &amp manag Bouncer Roles &amp Abilities. Before we start you will need to create a super admin to manage roles &amp abilities. Please hit the button below to activate your super admin continue.
                                     </p>
                                     <div class="section">
                                     <p>
