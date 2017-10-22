@@ -25,19 +25,21 @@
                     <div class="columns">
                         <div class="column is-6 is-offset-3">
 
-                            <div class="box">
+                            <div class="">
                             <div class="section">
                                 <div class="content">
                                 <h1 class="title is-1"><i class="fa fa-shield is-light" aria-hidden="true"></i></h1>
-                                    <h2 class="subtitle is-2">
-                                         DashAuth
+                                    <h2 class="subtitle is-3">
+                                         Dash Auth
                                     </h2>
                                     <p class="is-6">
                                     Before we start you will need to create a super admin to manage roles & abilities. Please hit the button below to activate your super admin continue.
                                     </p>
+                                    <div class="section">
                                     <p>
-                                        <a href="/dashauth/setup" class="button is-info is-large">Create SuperAdmin</a>
+                                        <a href="/dashauth/setup" class="button is-info is-large is-uppercase is-outlined">Create Super Admin</a>
                                     </p>
+                                    </div>
                                 </div>
                             </div>
 
