@@ -43,9 +43,23 @@ Dashauth::routes();
 
 ![Alt text](/screenshot-auth-setup.jpeg?raw=true)
 
-* __Larvel 5.3x__
+* __Larvel 5.4x__
 
-Add the provider the
+Add the service provider to the config/app.php file
+
+``` php
+"providers" => [
+    ShawnSandy\DashAuth\DashAuthServicesProvider::class,
+]
+```
+
+Add the facade to config/app.php file
+
+``` php
+aliases => [
+"Dashauth" => ShawnSandy\DashAuth\DashAuthFacade::class,
+]
+```
 
 ## Change log
 
