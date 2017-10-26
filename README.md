@@ -7,7 +7,7 @@ Dash Auth is simple way to create & manage [Bouncer](https://github.com/JosephSi
 
 Via Composer
 
-* Add the package to your `composer.json` file as VCS repository
+* Add the package to your `composer.json` file as VCS repository, sorry there is no packagist install just yet.
 
 ``` json
 "repositories": [
@@ -27,11 +27,10 @@ $ composer require shawnsandy/dash-auth
 
 __Quick Start__ Laravel 5.5x and greater
 
-* Add the SUPER_ADMIN_EMAIL to your .env file
+* Add the SUPER_ADMIN_EMAIL to your .env file with the email of the registered user that will act as your super-admin.
 
 ``` txt
-SUPER_ADMIN_EMAIL=supperadmin@someadd.me
-```
+SUPER_ADMIN_EMAIL=my_super_admin_here@mysite.me
 
 * Open yor `routes\web.php` file and add the following
 
