@@ -4,6 +4,11 @@ All Notable changes to `dashauth` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## v0.1.1 beta - 2017-10-25
+
+### Updates
+- Update the readme super_admin setup info
+
 ## v0.1 beta - 2017-10-25
 
 ### Added
