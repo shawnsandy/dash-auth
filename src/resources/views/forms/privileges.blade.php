@@ -1,12 +1,10 @@
 @if($user->isAn($role["name"]))
-    {{ Form::open(['url' => '/admin/auth/roles/'.$role["name"], 'method' => 'put',]) }}
-    <button type="submit" class="{{ config("dashauth.btn_class") }}">Remove {{ $role["title"] }} Role
-    </button>
+{{ $slot }}
+{{ Form::open(['url' => '/admin/auth/roles/'.$role["name"], 'method' => 'put',]) }}
+    {{ $remove_button }}
 @else
     {{ Form::open(['url' => '/admin/auth/roles/', 'name' => $role["name"]]) }}
-    <button type="submit" class="{{ config("dashauth.btn_class") }}">Add {{ $role["title"] }}
-    Role
-    </button>
+    {{ $add_button }}
 @endif
 {{ Form::hidden("role", $role["name"]) }}
 {{ Form::hidden("user", $user->id) }}

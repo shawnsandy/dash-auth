@@ -17,10 +17,6 @@ use ShawnSandy\DashAuth\AuthFormRequest;
 class RolesController extends Controller
 {
 
-	public function index()
-	    {
-		return "Hello world";
-	}
 
 	public function store(AuthFormRequest $request)
 		    {
