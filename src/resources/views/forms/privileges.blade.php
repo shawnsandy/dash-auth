@@ -1,3 +1,7 @@
+@if(count(Dashauth::roles()))
+
+@foreach(Dashauth::roles() as $role)
+
 @if($user->isAn($role["name"]))
 {{ $slot or "Description" }}
 {{ Form::open(['url' => '/admin/auth/roles/'.$role["name"], 'method' => 'put',]) }}
@@ -9,3 +13,11 @@
 {{ Form::hidden("role", $role["name"]) }}
 {{ Form::hidden("user", $user->id) }}
 {{ Form::close() }}
+
+@endforeach
+
+@else
+<p>
+Sorry no roles found
+</p>
+@endif
