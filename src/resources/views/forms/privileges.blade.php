@@ -1,15 +1,20 @@
-@if(count(Dashauth::roles()))
+@php
+    $roles = Dashauth::roles()
+@endphp
+@if(count($roles))
 
-@foreach(Dashauth::roles() as $role)
+{{ $slot or "Description"}}
+
+@foreach($roles as $role)
 
 @if($user->isAn($role["name"]))
-{{ $slot or "Description" }}
 {{ Form::open(['url' => '/admin/auth/roles/'.$role["name"], 'method' => 'put',]) }}
-    {{ $remove_button or "Button" }}
+    {{ $remove_button or "Remove Role ".$role["name"] }}
 @else
     {{ Form::open(['url' => '/admin/auth/roles/', 'name' => $role["name"]]) }}
-    {{ $add_button or "Button" }}
+    {{ $add_button or "Assign Role ".$role["name"] }}
 @endif
+
 {{ Form::hidden("role", $role["name"]) }}
 {{ Form::hidden("user", $user->id) }}
 {{ Form::close() }}
