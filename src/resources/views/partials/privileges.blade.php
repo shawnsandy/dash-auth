@@ -28,9 +28,9 @@
                         @foreach($privileges as $privilege => $ability )
 
                             @if($role->can($privilege) )
-                                <a href="/" class="btn btn-success btn-xs">{{ ucwords($ability) }}</a>
+                                <a href="/" class="{{ config("dashauth.btn_class") }}">{{ ucwords($ability) }}</a>
                             @else
-                                <a href="/" class="btn btn-default btn-xs">{{ ucwords($ability) }}</a>
+                                <a href="/" class="{{ config("dashauth.btn_class") }}">{{ ucwords($ability) }}</a>
                             @endif
 
                         @endforeach

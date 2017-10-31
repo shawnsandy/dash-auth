@@ -17,6 +17,7 @@ return [
         'manage_posts' => 'Manage Posts',
         'manage_admin' => 'Manage Site',
         'manage_systems' => 'Manage Systems',
-    ]
+    ],
+    "btn_class" => "btn btn-link btn-sm"
 
 ];
