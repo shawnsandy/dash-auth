@@ -53,11 +53,13 @@
                                             admin to manage roles &amp abilities. Please hit the button below to add a super
                                             admin continue your site.
                                         </p>
+
                                         <div class="section">
                                             <p>
                                                 <a href="/dashauth/setup" class="button is-info is-large is-uppercase is-outlined">Create Super Admin Now</a>
                                             </p>
                                         </div>
+
                                     </div>
                                 </div>
 
