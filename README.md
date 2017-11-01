@@ -61,7 +61,7 @@ Dash auth comes with a simple component to manage roles you can add the componen
 
 __Manage Abilities (privileges)__
 
-Assign and remove abilities using the `dashauth::components.privileges` component.
+Assign and remove abilities to/from using the `dashauth::components.privileges` component.
 
 ``` php
  @component('dashauth::components.privileges')
