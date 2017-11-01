@@ -14,7 +14,9 @@ Route::group(["prefix" => "dashauth", "middleware" => ["auth"]], function() {
 
     Route::resource("roles", '\ShawnSandy\DashAuth\Controllers\RolesController', ["only" => ["store", "update"]]);
 
-    Route::resource("privileges", '\ShawnSandy\DashAuth\Controllers\PrivilegesController', ["only" => ["store", "update"]]);
+    Route::any("privileges/assign", '\ShawnSandy\DashAuth\Controllers\PrivilegesController@store');
+
+    Route::any("privileges/remove", '\ShawnSandy\DashAuth\Controllers\PrivilegesController@update');
 
     Route::get("setup/", '\ShawnSandy\DashAuth\Controllers\SetupController');
 

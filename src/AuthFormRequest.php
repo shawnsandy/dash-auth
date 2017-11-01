@@ -64,12 +64,13 @@ class AuthFormRequest extends FormRequest
     public function assignPrivilegeToRole()
     {
         if ($this->has(["role", "privilege"])):
-            $role = $this->input("role");
-            $privilege = $this->input("privilege");
+            $role = $this->get("role");
+            $privilege = $this->get("privilege");
 
             return Bouncer::allow($role)->to($privilege);
 
         endif;
+
         return false;
     }
 
@@ -77,8 +78,8 @@ class AuthFormRequest extends FormRequest
     {
         if ($this->has(['role', 'privilege'])):
 
-            $role = $this->input('role');
-            $privilege = $this->input("privilege");
+            $role = $this->get("role");
+            $privilege = $this->get("privilege");
 
             return Bouncer::disallow($role)->to($privilege);
 

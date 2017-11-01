@@ -38,9 +38,34 @@ SUPER_ADMIN_EMAIL=my_super_admin_here@mysite.me
 Dashauth::routes();
 ```
 
+![Alt text](/screenshot-auth-setup.jpeg?raw=true)
+
+__Setup SuperAdmin Role__
+
 * Next go to `yoursite.com/dashauth` and create a super admin
 
-![Alt text](/screenshot-auth-setup.jpeg?raw=true)
+
+__Manage Roles Component__
+
+Dash auth comes with a simple component to manage roles you can add the component `forms.roles` component to you user record.
+
+``` php
+<p class="subtitle is-3">Manage rolkes</p>
+
+@component("dashauth::forms.privileges", [ "user" => $user_array ) ])
+@slot('btn_class')  button is-link is-large is-uppercase  @endslot
+@endcomponent
+```
+
+![Alt text](/screenshot-manage-ability.jpeg?raw=true)
+
+__Manage Abilities (privileges)__
+
+Assign and remove abilities using the `dashauth::components.privileges` component.
+
+``` php
+ @component('dashauth::components.privileges')
+ ```
 
 * __Larvel 5.4x__
 

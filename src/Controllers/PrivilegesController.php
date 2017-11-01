@@ -26,16 +26,19 @@ class PrivilegesController
     public function store(AuthFormRequest $request)
     {
 
+        if($request->assignPrivilegeToRole())
+       return back()->with("success", "Ability assigned to roles");
+
+       return  back()->with("error", "Failed assigned to roles");
 
     }
 
     public function update(AuthFormRequest $request)
     {
+        if($request->removePrivilegeFromRole())
+         return back()->with("success", "Ability removed from roles");
 
-    }
-
-    public function destroy()
-    {
+        return  back()->with("error", "Failed remove ability");
 
     }
 

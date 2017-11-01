@@ -22,7 +22,7 @@ class SetupController extends Controller
         $roles = Role::all()->toArray();
 
         if (count($roles) || Auth::user()->email != config("dashauth.super_admin_email"))
-            return back()->with("error", "Sorry setup has been disabled or roles already exist please contact a system administrator to resolve issue");
+            return back()->with("error", "Sorry setup has been disabled or configured incorrectly");
 
         $setup = app(Role::class);
         $roles =  collect(config("dashauth.roles"))->keys()->map(function( $key) {
