@@ -40,9 +40,10 @@ Dashauth::routes();
 
 ![Alt text](/screenshot-auth-setup.jpeg?raw=true)
 
+__Setup SuperAdmin Role__
+
 * Next go to `yoursite.com/dashauth` and create a super admin
 
-![Alt text](/screenshot-setup-success.jpeg?raw=true)
 
 __Manage Roles Component__
 
@@ -56,6 +57,15 @@ Dash auth comes with a simple component to manage roles you can add the componen
 @endcomponent
 ```
 
+![Alt text](/screenshot-manage-ability.jpeg?raw=true)
+
+__Manage Abilities (privileges)__
+
+Assign and remove abilities using the `dashauth::components.privileges` component.
+
+``` php
+ @component('dashauth::components.privileges')
+ ```
 
 * __Larvel 5.4x__
 

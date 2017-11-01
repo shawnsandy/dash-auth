@@ -5,7 +5,7 @@ if(!isset($roles))
 $roles = Dashauth::roles();
 
 @endphp
-
+{{ $slot or null }}
 <table class="{{ config("dashauth.table_class") }}">
 
     <thead>
