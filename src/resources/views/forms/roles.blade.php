@@ -7,7 +7,7 @@
 
 @if($user->isAn($role["name"]))
 
-{{ Form::open(['url' => '/admin/auth/roles/'.$role["name"], 'method' => 'put',]) }}
+{{ Form::open(['url' => '/admin/auth/roles/'.$role["name"], 'method' => 'put', "name" => $roles["name"]]) }}
 <p class="div flex-left">
 <button class="{{ $btn_class or config("dashauth.btn_class") }}">
 Remove {{ $role["name"]}} role
@@ -22,7 +22,7 @@ Assign role {{ $role["name"]}}
 </button>
     </p>
 @endif
-
+ {{ csrf_field() }}
 {{ Form::hidden("role", $role["name"]) }}
 {{ Form::hidden("user", $user->id) }}
 {{ Form::close() }}
