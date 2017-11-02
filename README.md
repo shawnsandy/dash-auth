@@ -7,8 +7,6 @@ Dash Auth is simple way to create & manage [Bouncer](https://github.com/JosephSi
 
 Via Composer
 
-* Add the package to your `composer.json` file as VCS repository, sorry there is no packagist install just yet.
-
 ``` json
 "repositories": [
         {
@@ -17,26 +15,53 @@ Via Composer
         }
     ],
 ```
-* From the command prompt run the following
+* Add the package to your `composer.json` file as VCS repository, sorry there is no packagist install just yet.
 
 ``` bash
 $ composer require shawnsandy/dash-auth
 ```
+* From the command prompt run the following
+
 
 ## Usage
 
 __Quick Start__ Laravel 5.5x and greater
 
-* Add the SUPER_ADMIN_EMAIL to your .env file with the email of the registered user that will act as your super-admin.
-
 ``` txt
 SUPER_ADMIN_EMAIL=my_super_admin_here@mysite.me
+```
+* Add the SUPER_ADMIN_EMAIL to your .env file with the email of the registered user that will act as your super-admin.
 
-* Open yor `routes\web.php` file and add the following
+``` bash
+php artisan vendor:publish --tag=dashauth-config
+```
+* From the console use the `--tag` option to publish `config file`
+
+``` php
+   'roles' => [
+        'superadmin' => "Super Admin",
+        'admin' => "Admin",
+        'staff' => "Staff",
+        'editor' => "Editor",
+        'member' => "Member",
+    ],
+
+    'abilities' => [
+        'assign_roles' => 'Assign Roles',
+        'manage_users' => 'Manage Users',
+        'manage_posts' => 'Manage Posts',
+        'manage_admin' => 'Manage Site',
+        'manage_systems' => 'Manage Systems',
+    ],
+```
+* Edit the config settings (optional)
+
 
 ``` php
 Dashauth::routes();
 ```
+* Add the default dash routes, open `routes\web.php` file and add the following
+
 
 ![Alt text](/screenshot-auth-setup.jpeg?raw=true)
 
@@ -44,30 +69,29 @@ __Setup SuperAdmin Role__
 
 * Next go to `yoursite.com/dashauth` and create a super admin
 
-
 __Manage Roles Component__
 
-Dash auth comes with a simple component to manage roles you can add the component `forms.roles` component to you user record.
-
 ``` php
-<p class="subtitle is-3">Manage rolkes</p>
+<p class="subtitle is-3">Manage Roles</p>
 
 @component("dashauth::forms.privileges", [ "user" => $user_array ) ])
 @slot('btn_class')  button is-link is-large is-uppercase  @endslot
 @endcomponent
 ```
+* Dash auth comes with a simple component to manage roles you can add the component `forms.roles` component to you user record.
+
 
 ![Alt text](/screenshot-manage-ability.jpeg?raw=true)
 
 __Manage Abilities (privileges)__
 
-Assign and remove abilities using the `dashauth::components.privileges` component.
-
 ``` php
  @component('dashauth::components.privileges')
  ```
 
-* __Larvel 5.4x__
+* Assign and remove abilities to/from using the `dashauth::components.privileges` component.
+
+ __Larvel 5.4x__
 
 Add the service provider to the config/app.php file
 
