@@ -32,12 +32,36 @@ SUPER_ADMIN_EMAIL=my_super_admin_here@mysite.me
 ```
 * Add the SUPER_ADMIN_EMAIL to your .env file with the email of the registered user that will act as your super-admin.
 
+``` bash
+php artisan vendor:publish --tag=dashauth-config
+```
+* From the console use the `--tag` option to publish `config file`
+
+``` php
+   'roles' => [
+        'superadmin' => "Super Admin",
+        'admin' => "Admin",
+        'staff' => "Staff",
+        'editor' => "Editor",
+        'member' => "Member",
+    ],
+
+    'abilities' => [
+        'assign_roles' => 'Assign Roles',
+        'manage_users' => 'Manage Users',
+        'manage_posts' => 'Manage Posts',
+        'manage_admin' => 'Manage Site',
+        'manage_systems' => 'Manage Systems',
+    ],
+```
+* Edit the config settings (optional)
+
 
 ``` php
 Dashauth::routes();
 ```
-* Open yor `routes\web.php` file and add the following
-______________________________________________________
+* Add the default dash routes, open `routes\web.php` file and add the following
+
 
 ![Alt text](/screenshot-auth-setup.jpeg?raw=true)
 
