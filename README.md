@@ -20,7 +20,7 @@ Via Composer
 ``` bash
 $ composer require shawnsandy/dash-auth
 ```
-* From the command prompt run the following
+* From the command prompt run the above to install the package
 
 
 ## Usage
@@ -60,7 +60,7 @@ php artisan vendor:publish --tag=dashauth-config
 ``` php
 Dashauth::routes();
 ```
-* Add the default dash routes, open `routes\web.php` file and add the following
+* Add the default dash routes, open `routes\web.php` file and add the above
 
 
 ![Alt text](/screenshot-auth-setup.jpeg?raw=true)
