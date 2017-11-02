@@ -54,7 +54,8 @@ php artisan vendor:publish --tag=dashauth-config
         'manage_systems' => 'Manage Systems',
     ],
 ```
-* Edit the config settings (optional)
+
+* Edit the config settings (optional), go to `config/dashauth.php`
 
 
 ``` php
