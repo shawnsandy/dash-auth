@@ -14,10 +14,6 @@
         "homepage": "https://github.com/shawnsandy",
         "role": "Developer"
     }],
-    "repositories": [{
-        "type": "vcs",
-        "url": "https://github.com/shawnsandy/dash-elements"
-    }],
     "require": {
         "php": "~5.6|~7.0",
         "illuminate/contracts": "~5.4|~5.5",
@@ -56,9 +52,5 @@
                 "Dashauth": "ShawnSandy\\DashAuth\\DashAuth"
             }
         }
-    },
-    "config": {
-        "preferred-install": "dist",
-        "sort-packages": true
     }
 }
