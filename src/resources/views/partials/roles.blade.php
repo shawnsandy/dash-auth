@@ -1,14 +1,17 @@
 @php
-
+{{--  User role admin component  --}}
     $auth_roles = Dashauth::roles();
+
     $current_user = Auth::user();
+
 
 @endphp
 
 
-@if(  config("dashauth.setup") || Bouncer::is($current_user)->a('superadmin', 'admin') )
 
-    @if(count($auth_roles) && isset($user))
+@if(  config("dashauth.setup") || Bouncer::is($current_user)->isAn('superadmin', 'admin') )
+
+    @if(count($auth_roles) > 0 && isset($user))
 
         <div class="roles">
             {{-- if user has role display add else display remove button--}}
@@ -17,10 +20,10 @@
                     <li class="list-group-item">
                         @if($user->isAn($role["name"]))
                             {{ Form::open(['url' => '/admin/auth/roles/'.$role["name"], 'method' => 'put',]) }}
-                            <button type="submit" class="{{ $btn-class or 'btn btn-link btn-sm' }}">Remove {{ $role["title"] }} Role</button>
+                            <button type="submit" class="">Remove {{ $role["title"] }} Role</button>
                         @else
                             {{ Form::open(['url' => '/admin/auth/roles/', 'name' => $role["name"]]) }}
-                            <button type="submit" class="{{ $btn-class or 'btn btn-link btn-sm' }}">Add {{ $role["title"] }} Role</button>
+                            <button type="submit" class="">Add {{ $role["title"] }} Role</button>
                         @endif
                         {{ Form::hidden("role", $role["name"]) }}
                         {{ Form::hidden("user", $user->id) }}

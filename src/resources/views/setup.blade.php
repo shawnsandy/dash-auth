@@ -13,7 +13,6 @@
     .button {
         border-radius: 30px;
     }
-
 </style>
 
 <body>
@@ -21,18 +20,19 @@
     <section class="hero is-white is-fullheight has-text-centered">
         <div class="hero-body">
             <div class="container">
-            <div class="section has-text-centered">
-             @if(session('error'))
-                        <p class="notification is-danger">
-                            {{ session('error') }}
-                        </p>
-                        @endif
-                        @if(session('success'))
-                        <p class="notification is-success">
-                            {{ session('success') }}
-                        </p>
-                        @endif
-            </div>
+
+                <div class="section has-text-centered">
+                    @if(session('error'))
+                    <p class="notification is-danger">
+                        {{ session('error') }}
+                    </p>
+                    @endif
+                    @if(session('success'))
+                    <p class="notification is-success">
+                        {{ session('success') }}
+                    </p>
+                    @endif
+                </div>
 
                 <section class="section">
                     <div class="columns">
