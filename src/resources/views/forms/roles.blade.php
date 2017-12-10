@@ -1,6 +1,6 @@
 @php
     $roles = Dashauth::roles();
-
+dd($roles)
 @endphp
 @if(count($roles))
 
@@ -12,7 +12,7 @@
 {{ Form::open(['url' => '/admin/auth/roles/'.$role["name"], 'method' => 'put', "name" => $role["name"]]) }}
 <p class="div flex-left">
 <button class="{{ $btn_class or config("dashauth.btn_class") }}">
-Remove {{ $role["name"]}} role
+Remove {{ $role["name"] }} role
 </button>
 </p>
 

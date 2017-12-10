@@ -23,8 +23,6 @@
         "illuminate/contracts": "~5.4|~5.5",
         "illuminate/http": "~5.4|~5.5",
         "illuminate/support": "~5.4|~5.5",
-        "shawnsandy/dashelements": "dev-master",
-        "shawnsandy/extras": "dev-master",
         "silber/bouncer": "v1.0.0-beta.4"
     },
     "require-dev": {
