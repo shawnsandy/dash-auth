@@ -49,7 +49,7 @@
                 "ShawnSandy\\DashAuth\\DashAuthServicesProvider"
             ],
             "aliases": {
-                "Dashauth": "ShawnSandy\\DashAuth\\DashAuth"
+                "Dashauth": "ShawnSandy\\DashAuth\\DashAuthFacade"
             }
         }
     }
