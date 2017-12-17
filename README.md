@@ -68,14 +68,18 @@ Dashauth::routes();
 
 __Setup SuperAdmin Role__
 
+* Set the superadmin email in you `.env` file `SUPERADMIN_EMAIL=youremail@you.com`
 * Next go to `yoursite.com/dashauth` and create a super admin
+* Manage \ View privileges `yoursite.com/dashauth/privileges`
 
 __Manage Roles Component__
+
+Add the manage roles component to application passing the user info `$user = User::find(1)`
 
 ``` php
 <p class="subtitle is-3">Manage Roles</p>
 
-@component("dashauth::forms.privileges", [ "user" => $user_array ) ])
+@component("dashauth::forms.privileges", [ "user" => $user ) ])
 @slot('btn_class')  button is-link is-large is-uppercase  @endslot
 @endcomponent
 ```
