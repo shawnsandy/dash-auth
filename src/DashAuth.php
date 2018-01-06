@@ -23,4 +23,16 @@
              return Role::with('abilities')->get();
         }
 
+        public function abilitiesCheck($role, $ability)
+        {
+
+            $role = Role::where("name", $role)->first();
+
+            if($role && $role->can($ability))
+            return true;
+
+            return false;
+
+        }
+
     }

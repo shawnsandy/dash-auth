@@ -9,8 +9,9 @@
 namespace ShawnSandy\DashAuth;
 
 
-use App\User;
 use Auth;
+use App\User;
+use Silber\Bouncer\Database\Role;
 use Illuminate\Foundation\Http\FormRequest;
 use Silber\Bouncer\BouncerFacade as Bouncer;
 
@@ -65,9 +66,17 @@ class AuthFormRequest extends FormRequest
     {
         if ($this->has(["role", "privilege"])):
             $role = $this->get("role");
+
             $privilege = $this->get("privilege");
 
-            return Bouncer::allow($role)->to($privilege);
+           Bouncer::allow($role)->to($privilege);
+
+           $check = dashauth()->abilitiesCheck($role, $privilege);
+
+           if($check)
+           return true;
+
+           return false;
 
         endif;
 
@@ -81,7 +90,14 @@ class AuthFormRequest extends FormRequest
             $role = $this->get("role");
             $privilege = $this->get("privilege");
 
-            return Bouncer::disallow($role)->to($privilege);
+            Bouncer::disallow($role)->to($privilege);
+
+            $check = dashauth()->abilitiesCheck($role, $privilege);
+
+            if(!check)
+            return true;
+
+            return false;
 
         endif;
         return false;
