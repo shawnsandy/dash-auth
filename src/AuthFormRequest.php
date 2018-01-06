@@ -94,7 +94,7 @@ class AuthFormRequest extends FormRequest
 
             $check = dashauth()->abilitiesCheck($role, $privilege);
 
-            if(!check)
+            if(!$check)
             return true;
 
             return false;
